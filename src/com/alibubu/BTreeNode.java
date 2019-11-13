@@ -27,9 +27,13 @@ public class BTreeNode {
             // traverse the subtree rooted with children[i].
             if (!isLeaf){
                 children.get(i).traverse();
-                System.out.println(String.valueOf(keys[i]));
             }
+            System.out.println(String.valueOf(keys[i]));
         }
+
+        // Print the subtree rooted with last child
+        if (!isLeaf)
+            children.get(i).traverse();
     }
 
     public BTreeNode search (int k){
@@ -111,7 +115,6 @@ public class BTreeNode {
             children.add(i+1, children.get(i));
         }
         // Link the new child to this node
-        children.remove(index+1);
         children.add(index+1, secondHalf);
 
         // A key of child will move to this node. Find the location of
