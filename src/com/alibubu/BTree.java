@@ -44,4 +44,24 @@ public class BTree {
         }
     }
 
+    public void remove(int k){
+        if (root == null){
+            System.out.println("Null tree!");
+            return;
+        }
+
+        root.remove(k);
+
+        // If the root node has 0 keys, make its first child as the new root
+        //  if it has a child, otherwise set root as NULL
+        if (root.numKeys == 0){
+            BTreeNode oldRoot = root;
+            if (!root.isLeaf)
+                root = null;
+            else
+                root = root.children.get(0);
+
+            oldRoot = null;
+        }
+    }
 }

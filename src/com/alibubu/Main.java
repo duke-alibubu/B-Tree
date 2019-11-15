@@ -13,5 +13,9 @@ public class Main {
         int k = 30;
         String out = (t.search(k) != null)?  "\nPresent" : "\nNot Present";
         System.out.println(out);
+
+        for (int i = 100; i <= 200; i += 9 )
+            t.remove(i);
+        t.traverse();
     }
 }
